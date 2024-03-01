@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+}
+
+.borderR {
+  border: 1px solid #12f1e4;
+  height: 50px;
+  border-radius: 13px;
+}
+.layer {
+  background: #5d5e5e;
+  border: 1px solid #12f1e4;
+  height: 80px;
+}
+.layer1 {
+  background: #5d5e5e;
+  border: 1px solid #12f1e4;
+  /* height: 80px; */
+}
+
+.userAccount {
+  background: #5d5e5e;
+  border: 1px solid #12f1e4;
+}
+.Uboder {
+  border: 1px solid #12f1e4;
+}
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .Nav_DIV {
+    width: 100px;
+  }
+  .Navtitle {
+    font-size: 15px;
+  }
+}
