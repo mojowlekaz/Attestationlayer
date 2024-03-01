@@ -1,4 +1,4 @@
-const axios = require('axios')
+import axios from 'axios'
 
 const apiKey = '25IMIBYESBYM259WHN6B9W3M7NUCD4IQMW'
 const accountAddress = '0x141dA4032b67aADaDa63047017aDCaCa4c0d6987'

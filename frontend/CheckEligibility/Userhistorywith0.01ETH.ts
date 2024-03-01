@@ -1,7 +1,7 @@
-const { ethers } = require('ethers')
-const axios = require('axios')
+import axios from 'axios'
+import ethers from 'ethers'
 
-async function hasSufficientEthTransaction(address) {
+async function hasSufficientEthTransaction(address: string) {
   try {
     const etherscanApiKey = '3FCW2HXWNTSZA9T8B7QD5AFSDP1BZQTX39'
     const etherscanUrl = `https://api.basescan.org/api?module=account&action=txlist&address=${address}&apikey=${etherscanApiKey}`
@@ -18,7 +18,7 @@ async function hasSufficientEthTransaction(address) {
           const tx = history[i]
 
           // Convert Wei to Ether
-          const valueInEther = ethers.utils.formatUnits(tx.value, 'ether')
+          const valueInEther: any = ethers.utils.formatUnits(tx.value, 'ether')
 
           // Check if the transaction value is greater than or equal to 1.975081874494107 Ether
           if (parseFloat(valueInEther) >= 0.01) {

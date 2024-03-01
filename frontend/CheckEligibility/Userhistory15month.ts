@@ -1,5 +1,4 @@
-const { ethers } = require('ethers')
-const axios = require('axios')
+import axios from 'axios'
 
 const userAddress = '0x4B34F943181408eac424116Af7b7790C94cba8B6'
 const etherscanApiKey = '3FCW2HXWNTSZA9T8B7QD5AFSDP1BZQTX39'
@@ -8,6 +7,7 @@ async function getActivationTimestamp() {
   try {
     // Get the latest transactions for the user from Etherscan
     const etherscanUrl = `https://api.basescan.org/api?module=account&action=txlist&address=${userAddress}&apikey=${etherscanApiKey}`
+
     const response = await axios.get(etherscanUrl)
 
     if (response.data.status === '1') {
@@ -47,17 +47,15 @@ async function checkUsage() {
       console.log('Current Timestamp:', currentTimestamp)
       console.log('Time Elapsed (seconds):', timeElapsedSeconds)
 
-      const numberOfMonths = 1
+      const numberOfMonths = 15
 
       // Calculate the duration in seconds
       const monthsInSeconds = numberOfMonths * 30.44 * 24 * 3600
 
       if (timeElapsedSeconds > monthsInSeconds) {
-        console.log('User has been using Ethereum for over 2 months.')
-        return true
+        console.log('User has been using Ethereum for over 6 months.')
       } else {
-        console.log('User has not been using Ethereum for over 2 months.')
-        return false
+        console.log('User has not been using Ethereum for over 6 months.')
       }
     } else {
       console.log('No activation timestamp found for the user.')
@@ -66,13 +64,5 @@ async function checkUsage() {
     console.error('Error:', error)
   }
 }
-const usageStatus = async () => {
-  try {
-    const status = await checkUsage()
-    console.log('Usage Status:', status)
-  } catch (error) {
-    console.error('Error:', error)
-  }
-}
 
-usageStatus()
+checkUsage()

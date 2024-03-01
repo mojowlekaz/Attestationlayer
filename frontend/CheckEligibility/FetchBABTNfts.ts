@@ -1,4 +1,4 @@
-const axios = require('axios')
+import axios from 'axios'
 
 export const apiKey: string = '25IMIBYESBYM259WHN6B9W3M7NUCD4IQMW'
 

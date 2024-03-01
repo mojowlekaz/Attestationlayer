@@ -1,4 +1,4 @@
-const axios = require('axios')
+import axios from 'axios'
 const ethers = require('ethers')
 
 const userAddress = '0x7fbcb044900e660bc12477a2c8ec55eca358f976'
@@ -14,10 +14,10 @@ async function checkTotalGasFees() {
       const transactions = response.data.result
 
       // Sum up the gas fees from all transactions
-      const totalGasFees = transactions.reduce((total, tx) => {
-        const gasUsed = ethers.BigNumber.from(tx.gasUsed)
-        const gasPrice = ethers.BigNumber.from(tx.gasPrice)
-        const transactionFee = gasUsed.mul(gasPrice)
+      const totalGasFees = transactions.reduce((total: any, tx: any) => {
+        const gasUsed: any = ethers.BigNumber.from(tx.gasUsed)
+        const gasPrice: any = ethers.BigNumber.from(tx.gasPrice)
+        const transactionFee: any = gasUsed.mul(gasPrice)
 
         return total.add(transactionFee)
       }, ethers.BigNumber.from(0))

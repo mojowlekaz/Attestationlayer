@@ -1,7 +1,7 @@
-const ethers = require('ethers')
-const axios = require('axios')
+import axios from 'axios'
+import ethers from 'ethers'
 
-async function getUserTransactionHistory(address) {
+async function getUserTransactionHistory(address: string) {
   try {
     const etherscanApiKey = '3FCW2HXWNTSZA9T8B7QD5AFSDP1BZQTX39'
     const etherscanUrl = `https://api.basescan.org/api?module=account&action=txlist&address=${address}&apikey=${etherscanApiKey}`
@@ -11,7 +11,7 @@ async function getUserTransactionHistory(address) {
     if (response.data.status === '1') {
       const history = response.data.result
 
-      if (history.length > 1024) {
+      if (history.length > 120) {
         console.log(`Transaction history for address: ${address}`)
 
         for (let i = 0; i < history.length; i++) {

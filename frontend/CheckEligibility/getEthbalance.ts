@@ -1,8 +1,8 @@
-const axios = require('axios')
+import axios from 'axios'
 
 const apiKey = '3FCW2HXWNTSZA9T8B7QD5AFSDP1BZQTX39'
 
-async function getEthBalance(address) {
+async function getEthBalance(address: string) {
   const etherscanUrl = `https://api.basescan.org/api?module=account&action=balance&address=${address}&tag=latest&apikey=${apiKey}`
 
   try {
@@ -10,7 +10,7 @@ async function getEthBalance(address) {
 
     if (response.data.status === '1') {
       const balanceWei = response.data.result
-      const balanceEth = balanceWei / 1e18 // Convert from Wei to ETH
+      const balanceEth: any = balanceWei / 1e18 // Convert from Wei to ETH
       return balanceEth
     } else {
       console.error('Basescan API error:', response.data.message)
@@ -20,8 +20,8 @@ async function getEthBalance(address) {
   }
 }
 
-export async function getbal(address) {
-  const ethbal = await getEthBalance(address)
+export async function getbal(address: string) {
+  const ethbal: any = await getEthBalance(address)
   if (ethbal > 0.05) {
     return { status: 'success', message: 'Sufficient balance' }
   } else {

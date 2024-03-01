@@ -1,5 +1,4 @@
-const { ethers } = require('ethers')
-const axios = require('axios')
+import axios from 'axios'
 
 const etherscanApiKey = '3FCW2HXWNTSZA9T8B7QD5AFSDP1BZQTX39'
 
