@@ -1,10 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { calculategrade } from '../Math/Calculategrade'
-import { printNFTTransactions } from '/Users/macbook/onchainlayer/CheckEligibility/FetchGalxeNfts'
-import { printBABTNFTTransactions } from '/Users/macbook/onchainlayer/CheckEligibility/FetchBABTNfts'
-import { getbal } from '/Users/macbook/onchainlayer/CheckEligibility/getEthbalance'
-import { checkforBadeges } from '/Users/macbook/onchainlayer/CheckEligibility/getBadgeholders'
+import { printNFTTransactions } from '../../CheckEligibility/FetchGalxeNfts'
+import { printBABTNFTTransactions } from '../../CheckEligibility/FetchBABTNfts'
+import { getbal } from '../../CheckEligibility/getEthbalance'
+import { checkforBadeges } from '../../CheckEligibility/getBadgeholders'
 
 export default function Userportfolio() {
   const [score, setScore] = useState<number>(52)
